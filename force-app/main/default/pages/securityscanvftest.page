@@ -1,0 +1,207 @@
+<!-- Written by Dhruv Gour : Security Scanner : 1 july 2017 -->
+<apex:page controller="TestSecurityClass" title="Apex Classes Security Scanner">
+
+    <apex:sectionHeader title="Find out security errors with examples" subtitle="Apex Classes Security Scanner" />
+    <apex:outputPanel id="errorMessage">
+        <apex:pageMessages />
+    </apex:outputPanel>
+
+
+    <apex:form>
+        <apex:pageBlock mode="maindetail">
+            <apex:pageBlockSection title="Select classes" columns="2" collapsible="false">
+
+                <apex:selectList value="{!selectedClasses }" title="Select the classes" multiselect="true" size="10">
+                    <apex:selectOptions value="{!accessibleClasses }" />
+                </apex:selectList>
+
+
+                <apex:panelGrid columns="2">
+                    <apex:facet name="header">
+                        <apex:outputPanel layout="block" style="text-align:center;">
+                            <h2>Display options:</h2>
+                            <br/>
+                            <br/>
+                        </apex:outputPanel>
+                    </apex:facet>
+
+                    <apex:outputLabel value="Show data in table format" for="showPublicVariables" />
+                    <apex:inputCheckbox value="{!showTable}" id="showPublicVariables" />
+
+                    <apex:outputLabel value="Show detailed view" for="showPublicMethods" />
+                    <apex:inputCheckbox value="{!showDetail}" id="showPublicMethods" />
+
+                    <apex:outputLabel value="Show method wise data in table format" for="showMetrics" />
+                    <apex:inputCheckbox value="{!showCode}" id="showMetrics" />
+
+                </apex:panelGrid>
+
+                <apex:commandButton value="Scan Classes " action="{!scanSelectedClasses}" rerender="out,table,errorMessage" status="status"
+                />
+                <apex:outputPanel id="out">
+                    <apex:actionstatus id="status" startText="scanning The Classes ...">
+                        <apex:facet name="stop">
+                            <apex:outputPanel>
+                                <p>Classes has been successfully scanned.</p>
+                            </apex:outputPanel>
+                        </apex:facet>
+                    </apex:actionstatus>
+                </apex:outputPanel>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+
+
+    <style></style>
+
+    <apex:outputPanel id="table">
+        <apex:outputPanel rendered="{!AND(showTable, classList.size>0)}">
+            <table border="2px" cellspacing="0px">
+                <thead>
+                    <tr>
+
+                        <th>
+                            Class Name
+                        </th>
+                        <th>
+                            Run Mode
+                        </th>
+                        <th>
+                            Aura Enabled Method Present ?
+                        </th>
+
+                        <th>Guest profile accessible</th>
+                        <th>Community user accessible</th>
+                        <th>Guest user profile</th>
+                        <th>Community user profile</th>
+                        <th>Severity</th>
+                        <th>Method List</th>
+                        <th>Insufficient Access Control</th>
+                        <th>FLS Missing</th>
+                        <th>CRUD Missing?</th>
+                        <th>XSS?</th>
+                        <th>CRUD Missing?</th>
+                        <th>SOQL Injection?</th>
+                        <th>Hardcoded Password?</th>
+                        <th>
+                            profile
+                        </th>
+                        <th>
+                            tooling
+                        </th>
+                        <th>
+                            parsed
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Getting all Class List and creatng table of each method and its paramater name and paramater type and also Info about class-->
+                    <apex:repeat value="{!classList}" var="class">
+                        <tr>
+
+                            <td>{!class.className}</td>
+                            <td>{!class.runMode}</td>
+                            <td>{!class.isHavingAuraEnabledMethod}</td>
+                            <td>{!class.guestUserProfile.size>0}</td>
+                            <td>{!class.communityUserProfile.size>0}</td>
+                            <td>
+                                <apex:repeat value="{!class.guestUserProfile}" var="guProfile">
+                                    <a href="{!baseurl}/{!guProfile.profileId}" target="_blank">{!guProfile.name}</a>
+                                    <br/>
+                                </apex:repeat>
+                            </td>
+                            <td>
+                                <apex:repeat value="{!class.communityUserProfile}" var="cuProfile">
+                                    <a href="{!baseurl}/{!cuProfile.profileId}" target="_blank">{!cuProfile.name}</a>
+                                    <br/>
+                                </apex:repeat>
+                            </td>
+                            <td>{!class.severity}</td>
+                            <td>{!class.severity}</td>
+
+                            <td>{!class.isInsufficientError}</td>
+                            <td>{!class.isFLSError}</td>
+                            <td>{!class.isXSSError}</td>
+                            <td>{!class.isCRUDError}</td>
+                            <td>{!class.isSOQLError}</td>
+                            <td>{!class.isSOQLInjectionError}</td>
+                            <td>{!class.isHardcodedError}</td>
+                            <td>{!class.SOQLResult}</td>
+                            <td>{!class.toolingAPIResult}</td>
+                            <td>{!class.parserResult}</td>
+                            <!--<td>      
+                <table width="100%" border="1px" cellspacing="0px">
+                    <tbody>
+                    <apex:repeat value="{!class.methodlist}" var="record">
+                            <tr><td colspan="2">Method Name: {!record.name}</td></tr>
+                            <tr><td>Name</td><td>Type</td></tr>
+                        <apex:repeat value="{!record.parameters}" var="parameter">
+                            <tr><td>{!parameter.name}</td><td>{!parameter.type}</td></tr>
+                        </apex:repeat>
+                        <tr><td colspan="2">{!record.body}</td></tr>
+
+                    </apex:repeat>
+                    </tbody>
+                </table>
+            
+            </td>-->
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!AND(showCode, classList.size>0)}">
+            <table border="2px" cellspacing="0px">
+                <thead>
+                    <tr>
+
+                        <th>
+                            Method Name
+                        </th>
+                        <th>
+                            Annotations
+                        </th>
+                        <th>
+                            Parameters
+                        </th>
+                        <th>
+                            Class Name
+                        </th>
+                        <th>
+                            Is aura enabled
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Getting all Class List and creatng table of each method and its paramater name and paramater type and also Info about class-->
+                    <apex:repeat value="{!classList}" var="class">
+                        <apex:repeat value="{!class.methodList}" var="method">
+                            <tr>
+
+                                <td>{!method.name}</td>
+                                <td>
+                                    <apex:repeat value="{!method.annotations}" var="annotation">
+                                        {!annotation.name}
+                                        <br/>
+                                    </apex:repeat>
+                                </td>
+                                <td>
+                                    <apex:repeat value="{!method.Parameters}" var="Parameter">
+                                        {!Parameter.name} - {!Parameter.type}
+                                        <br/>
+                                    </apex:repeat>
+                                </td>
+                                <td>
+                                    {!class.className}
+                                </td>
+                                <td>
+                                    {!method.isAuraEnabledMethod}
+                                </td>
+                            </tr>
+                        </apex:repeat>
+                    </apex:repeat>
+                </tbody>
+            </table>
+        </apex:outputPanel>
+    </apex:outputPanel>
+</apex:page>

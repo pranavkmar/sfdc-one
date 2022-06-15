@@ -1,0 +1,88 @@
+{
+  "appPageId" : "4ddded70-5823-4704-8553-07a2e1d46276",
+  "componentName" : "community_layout:sldsFlexibleLayout",
+  "id" : "95d93903-059d-49ff-ab42-51a249653823",
+  "label" : "Home",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "sectionConfig" : "{\"UUID\":\"e18054e8-e0a7-4c05-8f4b-c3d5accbdc7f\",\"columns\":[{\"UUID\":\"c8d8b1e1-85b1-4b21-8c39-0c60a41a42b4\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":null}]}"
+      },
+      "componentName" : "community_layout:section",
+      "id" : "e18054e8-e0a7-4c05-8f4b-c3d5accbdc7f",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "richTextValue" : "<div style=\"display: flex; justify-content: center; align-items: center; margin: 50px 0; flex-direction: column; text-align: center;\"><div style=\"background-image: url(assets/img/desert.svg); background-size: cover; background-position: center; height: 300px; width: 100%; max-width: 600px; min-width: 300px;\"></div><h1 class=\"slds-text-heading_medium slds-p-bottom_x-small\">Start Building Your Page</h1> <div>Drag and drop a component into the content slots.</div></div>"
+          },
+          "componentName" : "community_builder:htmlEditor",
+          "id" : "c761e23d-d112-4a42-b2ad-33b302ea451c",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "c8d8b1e1-85b1-4b21-8c39-0c60a41a42b4",
+        "regionLabel" : "Column 1",
+        "regionName" : "col1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "scopedBrandingSetId" : null,
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "sectionConfig" : "{\"UUID\":\"78ffd6f5-b991-43f7-b577-0a6a4ea92133\",\"columns\":[{\"UUID\":\"d26264e0-8265-44d7-9496-c21ec5729d3e\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"4\",\"seedComponents\":[]},{\"UUID\":\"7578cab5-dd59-4abe-a4cf-a6d9a2765b6d\",\"columnName\":\"Column 2\",\"columnKey\":\"50d8a\",\"columnWidth\":\"4\",\"seedComponents\":[]},{\"UUID\":\"e6659029-c71d-4bea-b9b2-9d706fa247b9\",\"columnName\":\"Column 3\",\"columnKey\":\"76544\",\"columnWidth\":\"4\",\"seedComponents\":[]}]}"
+      },
+      "componentName" : "community_layout:section",
+      "id" : "78ffd6f5-b991-43f7-b577-0a6a4ea92133",
+      "regions" : [ {
+        "id" : "d26264e0-8265-44d7-9496-c21ec5729d3e",
+        "regionLabel" : "Column 1",
+        "regionName" : "col1",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "id" : "7578cab5-dd59-4abe-a4cf-a6d9a2765b6d",
+        "regionLabel" : "Column 2",
+        "regionName" : "50d8a",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "id" : "e6659029-c71d-4bea-b9b2-9d706fa247b9",
+        "regionLabel" : "Column 3",
+        "regionName" : "76544",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "scopedBrandingSetId" : null,
+      "type" : "component"
+    } ],
+    "id" : "eeaa2f5f-d7ee-477c-a474-0ef7f0567e56",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "pageTitle" : "Home",
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "community_builder:seoAssistant",
+      "id" : "9baab41d-1b44-4b69-9c8e-5c3db2d29ead",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b683a37d-73d8-41c2-9f50-8a73655b2dfa",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "home"
+}

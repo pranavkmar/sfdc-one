@@ -1,0 +1,56 @@
+{
+  "appPageId" : "4ddded70-5823-4704-8553-07a2e1d46276",
+  "componentName" : "community_layout:sldsFlexibleLayout",
+  "id" : "fe79ed76-54fc-4eff-8116-ee1bc8ed76a5",
+  "label" : "Search",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "sectionConfig" : "{\"UUID\":\"66e6f4bf-2ae1-48cf-b3d7-5650bbdbc402\",\"columns\":[{\"UUID\":\"e12b7218-a7a7-4f92-bb3b-ffc8b369d48c\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"2\",\"seedComponents\":[]},{\"UUID\":\"3f28f461-7121-4df5-921b-f8e30d864da3\",\"columnName\":\"Column 2\",\"columnKey\":\"629f6\",\"columnWidth\":\"2\",\"seedComponents\":[]},{\"UUID\":\"f5c5adc3-d36c-4a23-9a11-61ef1bc0015b\",\"columnName\":\"Column 3\",\"columnKey\":\"182f2\",\"columnWidth\":\"2\",\"seedComponents\":[]},{\"UUID\":\"85b0a242-d0e0-4bb3-899e-d4de3530515e\",\"columnName\":\"Column 4\",\"columnKey\":\"61229\",\"columnWidth\":\"2\",\"seedComponents\":[]},{\"UUID\":\"1f06f6da-9fca-4823-a5f1-9f1066acb8b2\",\"columnName\":\"Column 5\",\"columnKey\":\"c7eee\",\"columnWidth\":\"4\",\"seedComponents\":[]}]}"
+      },
+      "componentName" : "community_layout:section",
+      "id" : "66e6f4bf-2ae1-48cf-b3d7-5650bbdbc402",
+      "regions" : [ {
+        "id" : "e12b7218-a7a7-4f92-bb3b-ffc8b369d48c",
+        "regionLabel" : "Column 1",
+        "regionName" : "col1",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "id" : "3f28f461-7121-4df5-921b-f8e30d864da3",
+        "regionLabel" : "Column 2",
+        "regionName" : "629f6",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "id" : "f5c5adc3-d36c-4a23-9a11-61ef1bc0015b",
+        "regionLabel" : "Column 3",
+        "regionName" : "182f2",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "id" : "85b0a242-d0e0-4bb3-899e-d4de3530515e",
+        "regionLabel" : "Column 4",
+        "regionName" : "61229",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "id" : "1f06f6da-9fca-4823-a5f1-9f1066acb8b2",
+        "regionLabel" : "Column 5",
+        "regionName" : "c7eee",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "scopedBrandingSetId" : "d4984c85-0ea3-4aa6-a5ff-a9cb7de9f493",
+      "type" : "component"
+    } ],
+    "id" : "be39f8d9-b08d-4a19-a87b-b8b8910314b9",
+    "regionName" : "content",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "global-search"
+}
